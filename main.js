@@ -97,3 +97,25 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
     })
 
     .then(data => console.log(data.title));
+
+
+// ultimo esercizio riassuntivo con tutti
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+
+    // Converte l'oggetto JavaScript in una stringa JSON
+    body: JSON.stringify({
+        title: 'Il mio post',
+        body: 'Questo è il contenuto del mio post',
+        userId: 3
+    }),
+    headers: { 'Content-Type': 'application/json' }
+})
+
+    .then(response => {
+        console.log(response.status);
+        console.log(response.ok);
+        return response.json();
+    })
+
+    .then(data => console.log('Risorsa creata con id:' + data.id));
