@@ -48,3 +48,30 @@ fetch("https://jsonplaceholder.typicode.com/users/1")
 
 
     });
+
+//quarto esercizio i metodi HTTP con fetch
+
+fetch("https://jsonplaceholder.typicode.com/posts"{
+
+    method: `post`
+    body: JSON.stringify({
+        title: 'Il mio post',
+        body: 'Contenuto del post',
+        userId: 1
+    }),
+    headers: { 'Content-Type': 'application/json' }
+
+
+});
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+    body: JSON.stringify({
+        title: 'Il mio post',
+        body: 'Contenuto del post',
+        userId: 1
+    }),
+    headers: { 'Content-Type': 'application/json' }
+})
+    .then(response => response.json())
+    .then(data => console.log('Id creato: ' + data.id));
