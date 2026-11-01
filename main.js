@@ -33,3 +33,18 @@ fetch("https://jsonplaceholder.typicode.com/posts/1")
     )
     // Riceve i dati convertiti e li stampa nella console
     .then(data => console.log(data));
+
+//terzo esercizio richiesta all'API per recuperare l'utente con ID 1
+
+fetch("https://jsonplaceholder.typicode.com/users/1")
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        console.log(data.name);
+        console.log(data.address);
+        console.log(data.address.city);
+
+
+    });
