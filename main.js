@@ -75,3 +75,25 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 })
     .then(response => response.json())
     .then(data => console.log('Id creato: ' + data.id));
+
+//quinto esercizio Fetch POST: gestione degli header e lettura della risposta JSON
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+    method: 'POST',
+
+    // Converte l'oggetto JavaScript in una stringa JSON
+    body: JSON.stringify({
+        title: 'Il mio post',
+        body: 'Questo è il contenuto del mio post',
+        userId: 2
+    }),
+    headers: { 'Content-Type': 'application/json' }
+})
+
+    .then(response => {
+        const contentType = response.headers.get('Content-Type');
+        console.log('Tipo di risposta: ' + contentType);
+        return response.json();
+    })
+
+    .then(data => console.log(data.title));
