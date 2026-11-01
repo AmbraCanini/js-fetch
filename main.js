@@ -37,9 +37,9 @@ fetch("https://jsonplaceholder.typicode.com/posts/1")
 //terzo esercizio richiesta all'API per recuperare l'utente con ID 1
 
 fetch("https://jsonplaceholder.typicode.com/users/1")
-
+    // Converte la risposta in dati JavaScript
     .then(response => response.json())
-
+    // Riceve i dati dell'utente
     .then(data => {
 
         console.log(data.name);
